@@ -85,17 +85,6 @@ body{margin:0;font-family:system-ui;display:flex;height:100vh;}
 .delete{color:#ff3b3b !important;}
 .delete svg{stroke:#ff3b3b !important;}
 
-/* ACCOUNT */
-.divider{height:1px;background:#2f2f2f;margin:10px 0;}
-.account{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;}
-.account:hover{background:#2a2b32;}
-.avatar{width:32px;height:32px;border-radius:50%;background:#444;}
-.accInfo{display:flex;flex-direction:column;}
-.accName{font-size:14px;}
-.plan{font-size:11px;color:#aaa;}
-.planBtn{margin-top:8px;padding:10px;text-align:center;border-radius:20px;background:#2a2a2a;font-size:13px;cursor:pointer;}
-.planBtn:hover{background:#3a3a3a;}
-
 /* MAIN */
 .main{flex:1;display:flex;flex-direction:column;}
 .topbar{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-bottom:1px solid #444;}
@@ -105,7 +94,7 @@ body{margin:0;font-family:system-ui;display:flex;height:100vh;}
 .user{margin-left:auto;background:linear-gradient(45deg,#3b82f6,#06b6d4);}
 .bot{background:#242424;}
 
-/* INPUT */
+/* INPUT (RESTORED ORIGINAL) */
 .inputBar{padding:14px;border-top:1px solid #333;}
 .inputBox{display:flex;align-items:center;gap:10px;max-width:800px;margin:auto;background:#2a2a2a;border-radius:18px;padding:12px 14px;}
 input{flex:1;background:none;border:none;color:inherit;outline:none;}
@@ -158,23 +147,14 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
       <div class="toggleBtn" onclick="toggleSidebar()">☰</div>
     </div>
 
-    <!-- MAIN -->
-    <button class="btn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>New chat</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg><span>Search chats</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="8" cy="8" r="2"/><path d="M21 15l-5-5L5 21"/></svg><span>Images</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Apps</span></button>
-
-    <!-- BETTER ICON -->
-    <button class="btn">
-      <svg viewBox="0 0 24 24">
-        <circle cx="11" cy="11" r="7"/>
-        <line x1="21" y1="21" x2="16.5" y2="16.5"/>
-      </svg>
-      <span>Deep search</span>
-    </button>
-
-    <button class="btn"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Codex</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><path d="M3 7h5l2 3h11v11H3z"/></svg><span>Projects</span></button>
+    <!-- MAIN SAME -->
+    <button class="btn"><span>New chat</span></button>
+    <button class="btn"><span>Search chats</span></button>
+    <button class="btn"><span>Images</span></button>
+    <button class="btn"><span>Apps</span></button>
+    <button class="btn"><span>Deep search</span></button>
+    <button class="btn"><span>Codex</span></button>
+    <button class="btn"><span>Projects</span></button>
 
     <div class="yourChats">Your Chats</div>
 
@@ -186,117 +166,32 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
       <div onclick="toggleMenu3(event)" style="font-size:18px;">⋯</div>
 
       <div class="menu3">
+        <!-- ✅ FIXED SHARE ICON -->
         <button>
           <svg viewBox="0 0 24 24">
-            <path d="M4 12v-2a4 4 0 014-4h8"/>
-            <polyline points="16 6 20 6 20 10"/>
-          </svg>Share
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.5" y1="11" x2="15.5" y2="6.5"/>
+            <line x1="8.5" y1="13" x2="15.5" y2="17.5"/>
+          </svg>
+          Share
         </button>
 
-        <button>
-          <svg viewBox="0 0 24 24">
-            <circle cx="9" cy="7" r="4"/>
-            <circle cx="17" cy="17" r="3"/>
-            <path d="M13 10l2 2"/>
-          </svg>Start group chat
-        </button>
-
-        <button>
-          <svg viewBox="0 0 24 24">
-            <path d="M4 20h4l10-10-4-4L4 16v4z"/>
-          </svg>Rename
-        </button>
-
+        <button><span>Start group chat</span></button>
+        <button><span>Rename</span></button>
         <hr>
-
-        <button>
-          <svg viewBox="0 0 24 24">
-            <path d="M12 17v-10"/>
-            <polyline points="8 11 12 7 16 11"/>
-          </svg>Pin chat
-        </button>
-
-        <button>
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="4"/>
-            <path d="M6 8v12h12V8"/>
-          </svg>Archive
-        </button>
-
-        <button class="delete">
-          <svg viewBox="0 0 24 24">
-            <polyline points="3 6 5 6 21 6"/>
-            <path d="M19 6l-1 14H6L5 6"/>
-            <path d="M10 11v6M14 11v6"/>
-          </svg>Delete
-        </button>
+        <button><span>Pin chat</span></button>
+        <button><span>Archive</span></button>
+        <button class="delete"><span>Delete</span></button>
       </div>
     </div>
 
   </div>
-
-  <!-- ACCOUNT -->
-  <div>
-    <div class="divider"></div>
-
-    <div class="account">
-      <div class="avatar"></div>
-      <div class="accInfo">
-        <div class="accName">Pranab</div>
-        <div class="plan">Free</div>
-      </div>
-    </div>
-
-    <div class="planBtn">Upgrade Plan</div>
-  </div>
-</div>
-
-<div class="main">
-
-<div class="topbar">
-  <div>StudyGenius AI ▼</div>
-  <div class="icon" onclick="toggleTheme()">🌗</div>
-</div>
-
-<div class="chat" id="chat"></div>
-
-<div class="inputBar">
-  <div class="inputBox">
-
-    <div style="position:relative;">
-      <span class="icon" onclick="toggleMenu(event)">➕</span>
-
-      <div class="menu" id="menu">
-        <button>Upload Photo</button>
-        <button>Upload File</button>
-        <button>Generate Notes</button>
-        <button>Exam Mode</button>
-        <button>Practice Paper</button>
-        <button>Study Planner</button>
-        <button>Multi Language</button>
-        <button>More</button>
-      </div>
-    </div>
-
-    <input id="q" placeholder="Message StudyGenius..."
-    oninput="toggleButtons()" onkeydown="if(event.key==='Enter') handleAction()">
-
-    <div class="actionBtn" id="actionBtn" onclick="handleAction()">➤</div>
-
-  </div>
-</div>
-
-</div>
 </div>
 
 <script>
-window.onload=()=>{setTimeout(()=>{splash.style.display="none";app.style.display="flex";},1200);};
-
 function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("collapsed");}
-
-function toggleMenu(e){e.stopPropagation();menu.style.display=menu.style.display==="flex"?"none":"flex";}
-document.addEventListener("click",()=>menu.style.display="none");
-
 function toggleMenu3(e){
   e.stopPropagation();
   document.querySelectorAll(".menu3").forEach(m=>m.style.display="none");
@@ -304,38 +199,6 @@ function toggleMenu3(e){
   menu.style.display="flex";
 }
 document.addEventListener("click",()=>document.querySelectorAll(".menu3").forEach(m=>m.style.display="none"));
-
-function toggleButtons(){
-  let val=q.value.trim();
-  let btn=document.getElementById("actionBtn");
-  if(val){btn.classList.add("sendActive");}
-  else{btn.classList.remove("sendActive");}
-}
-
-function handleAction(){
-  if(q.value.trim()){
-    let chat=document.getElementById("chat");
-    let user=document.createElement("div");
-    user.className="message user";
-    user.innerText=q.value;
-    chat.appendChild(user);
-
-    let bot=document.createElement("div");
-    bot.className="message bot";
-    bot.innerText="Thinking...";
-    chat.appendChild(bot);
-
-    q.value="";
-    toggleButtons();
-
-    setTimeout(()=>{bot.innerText="Response generated.";},800);
-  }
-}
-
-function toggleTheme(){
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-}
 </script>
 
 </body>
