@@ -7,17 +7,30 @@
 
 <style>
 body.dark{background:#181818;color:white;}
-body.light{background:#fff;color:#111;}
 body{margin:0;font-family:system-ui;display:flex;height:100vh;}
 
 /* SPLASH */
-#splash{position:fixed;width:100%;height:100%;background:#0f172a;display:flex;justify-content:center;align-items:center;z-index:9999;}
-#logoAnim{width:80px;height:80px;border-radius:50%;overflow:hidden;animation:zoomFade 1.5s ease forwards;}
-#logoAnim img{width:100%;height:100%;object-fit:cover;transform:scale(1.3);}
-@keyframes zoomFade{0%{transform:scale(0.6);opacity:0;}100%{transform:scale(1);}}
+#splash{
+position:fixed;width:100%;height:100%;
+background:#0f172a;display:flex;justify-content:center;align-items:center;
+z-index:9999;
+}
+#logoAnim{
+width:80px;height:80px;border-radius:50%;
+overflow:hidden;animation:zoomFade 1.5s ease forwards;
+}
+#logoAnim img{width:100%;height:100%;object-fit:cover;}
+@keyframes zoomFade{
+0%{transform:scale(0.6);opacity:0;}
+100%{transform:scale(1);}
+}
 
 /* SIDEBAR */
-.sidebar{width:220px;background:#202123;padding:12px;display:flex;flex-direction:column;justify-content:space-between;transition:0.3s;}
+.sidebar{
+width:220px;background:#202123;padding:12px;
+display:flex;flex-direction:column;justify-content:space-between;
+transition:.3s;
+}
 .sidebar.collapsed{width:70px;}
 .sidebar.collapsed .btn span,
 .sidebar.collapsed .yourChats,
@@ -26,110 +39,66 @@ body{margin:0;font-family:system-ui;display:flex;height:100vh;}
 .sidebar.collapsed .planBtn{display:none;}
 .sidebar.collapsed .btn{justify-content:center;}
 
-.logoRow{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.logoRow{display:flex;justify-content:space-between;margin-bottom:10px;}
 .logoWrap{width:28px;height:28px;border-radius:50%;overflow:hidden;}
-.logoWrap img{width:100%;height:100%;object-fit:cover;}
-.toggleBtn{cursor:pointer;padding:6px;border-radius:6px;}
+.logoWrap img{width:100%;}
+.toggleBtn{cursor:pointer;padding:6px;}
 .toggleBtn:hover{background:#2a2b32;}
 
-.btn{display:flex;align-items:center;gap:10px;padding:10px;border:none;border-radius:8px;margin:4px 0;background:transparent;color:inherit;cursor:pointer;}
+.btn{
+display:flex;align-items:center;gap:10px;
+padding:10px;border:none;border-radius:8px;
+margin:4px 0;background:transparent;color:inherit;cursor:pointer;
+}
 .btn:hover{background:#2a2b32;}
+.btn svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:2;}
 
-.btn svg,.menu svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;}
-
-/* YOUR CHATS */
-.yourChats{font-size:14px;margin:10px 0 6px 6px;color:#9ca3af;font-weight:500;}
-
-.chatItem{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:6px;position:relative;font-size:13px;}
+/* CHATS */
+.yourChats{font-size:14px;margin:10px 0;color:#aaa;}
+.chatItem{display:flex;justify-content:space-between;padding:8px;border-radius:6px;}
 .chatItem:hover{background:#2a2b32;}
-
-.left{display:flex;align-items:center;gap:6px;}
+.left{display:flex;gap:6px;align-items:center;}
 .dot{width:6px;height:6px;background:white;border-radius:50%;}
 
-/* 3 DOT MENU */
+/* MENU 3 */
 .menu3{
-  position:absolute;
-  right:-200px;
-  top:0;
-  width:200px;
-  background:#2a2a2a;
-  border-radius:10px;
-  padding:6px 0;
-  display:none;
-  flex-direction:column;
-  z-index:1000;
+position:absolute;right:-200px;width:200px;
+background:#2a2a2a;border-radius:10px;
+display:none;flex-direction:column;
 }
 .menu3 button{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background:none;
-  border:none;
-  color:white;
-  padding:9px 14px;
-  font-size:13px;
-  cursor:pointer;
+display:flex;gap:10px;align-items:center;
+background:none;border:none;color:white;
+padding:10px;font-size:13px;cursor:pointer;
 }
 .menu3 button:hover{background:#3a3a3a;}
-.menu3 hr{border:none;border-top:1px solid #444;margin:6px 0;}
+.menu3 svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+.menu3 hr{border:1px solid #444;}
 
-/* FIXED ICON VISIBILITY */
-.menu3 svg{
-  width:16px;
-  height:16px;
-  stroke:currentColor;
-  fill:none;
-  stroke-width:2;
-}
-
-/* DELETE FULL RED */
 .delete{color:#ff3b3b;}
 .delete svg{stroke:#ff3b3b;}
 
 /* ACCOUNT */
-.divider{height:1px;background:#2f2f2f;margin:10px 0;}
-
-.account{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;}
-.account:hover{background:#2a2b32;}
-
-.avatar{width:32px;height:32px;border-radius:50%;background:#444;}
-
-.accInfo{display:flex;flex-direction:column;}
-.accName{font-size:14px;}
+.account{display:flex;gap:10px;padding:8px;}
+.avatar{width:30px;height:30px;background:#444;border-radius:50%;}
 .plan{font-size:11px;color:#aaa;}
-
-.planBtn{
-  margin-top:8px;
-  padding:10px;
-  text-align:center;
-  border-radius:20px;
-  background:#2a2a2a;
-  font-size:13px;
-  cursor:pointer;
-}
-.planBtn:hover{background:#3a3a3a;}
+.planBtn{background:#2a2a2a;padding:8px;border-radius:20px;text-align:center;}
 
 /* MAIN */
 .main{flex:1;display:flex;flex-direction:column;}
-.topbar{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-bottom:1px solid #444;}
-
-.chat{flex:1;padding:25px;overflow-y:auto;}
-.message{max-width:70%;padding:14px;margin:10px 0;border-radius:14px;}
-.user{margin-left:auto;background:linear-gradient(45deg,#3b82f6,#06b6d4);}
-.bot{background:#242424;}
+.topbar{height:50px;display:flex;justify-content:space-between;padding:0 15px;border-bottom:1px solid #444;}
+.chat{flex:1;padding:20px;}
+.message{margin:10px 0;padding:10px;border-radius:10px;}
+.user{background:#3b82f6;margin-left:auto;}
+.bot{background:#333;}
 
 /* INPUT */
-.inputBar{padding:14px;border-top:1px solid #333;}
-.inputBox{display:flex;align-items:center;gap:10px;max-width:800px;margin:auto;background:#2a2a2a;border-radius:18px;padding:12px 14px;}
-input{flex:1;background:none;border:none;color:inherit;outline:none;}
-.icon{cursor:pointer;padding:6px;border-radius:6px;}
-.icon:hover{background:#333;}
-
-.menu{position:absolute;bottom:55px;left:0;background:#2a2a2a;border-radius:12px;padding:10px;display:none;flex-direction:column;width:230px;}
-.menu button{display:flex;align-items:center;gap:10px;background:none;border:none;color:white;padding:10px;border-radius:8px;}
-.menu button:hover{background:#3a3a3a;}
-
-.actionBtn{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#2f2f2f;}
+.inputBox{
+display:flex;gap:10px;background:#2a2a2a;
+padding:10px;border-radius:20px;margin:10px;
+}
+input{flex:1;background:none;border:none;color:white;outline:none;}
+.actionBtn{background:#2f2f2f;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
 .sendActive{background:#10a37f;}
 </style>
 </head>
@@ -137,84 +106,100 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
 <body class="dark">
 
 <div id="splash">
-  <div id="logoAnim"><img src="logo.png"></div>
+<div id="logoAnim"><img src="logo.png"></div>
 </div>
 
-<div id="app" style="display:none; width:100%; display:flex;">
+<div id="app" style="display:none;width:100%;display:flex;">
 
 <div class="sidebar">
-  <div>
+<div>
 
-    <div class="logoRow">
-      <div class="logoWrap"><img src="logo.png"></div>
-      <div class="toggleBtn" onclick="toggleSidebar()">☰</div>
-    </div>
+<div class="logoRow">
+<div class="logoWrap"><img src="logo.png"></div>
+<div class="toggleBtn" onclick="toggleSidebar()">☰</div>
+</div>
 
-    <!-- MAIN -->
-    <button class="btn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>New chat</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg><span>Search chats</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="8" cy="8" r="2"/><path d="M21 15l-5-5L5 21"/></svg><span>Images</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Apps</span></button>
+<button class="btn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>New chat</span></button>
 
-    <!-- NEW ICON -->
-    <button class="btn">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>
-      </svg>
-      <span>Deep search</span>
-    </button>
+<!-- 🔥 NEW ICON -->
+<button class="btn">
+<svg viewBox="0 0 24 24">
+<path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>
+</svg>
+<span>Deep search</span>
+</button>
 
-    <button class="btn"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Codex</span></button>
-    <button class="btn"><svg viewBox="0 0 24 24"><path d="M3 7h5l2 3h11v11H3z"/></svg><span>Projects</span></button>
+<div class="yourChats">Your Chats</div>
 
-    <div class="yourChats">Your Chats</div>
+<div class="chatItem">
+<div class="left"><div class="dot"></div><span>Example</span></div>
+<div onclick="toggleMenu3(event)">⋯</div>
 
-    <div class="chatItem">
-      <div class="left">
-        <div class="dot"></div>
-        <span>Example Chat</span>
-      </div>
-      <div onclick="toggleMenu3(event)" style="font-size:18px;">⋯</div>
+<div class="menu3">
+<button>Share</button>
+<button>Rename</button>
+<hr>
+<button class="delete">Delete</button>
+</div>
+</div>
 
-      <div class="menu3">
-        <button><svg viewBox="0 0 24 24"><path d="M4 12v-2a4 4 0 014-4h8"/><polyline points="16 6 20 6 20 10"/></svg>Share</button>
-        <button><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><circle cx="17" cy="17" r="3"/><path d="M13 10l2 2"/></svg>Start group chat</button>
-        <button><svg viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16v4z"/></svg>Rename</button>
-        <hr>
-        <button><svg viewBox="0 0 24 24"><path d="M12 17v-10"/><polyline points="8 11 12 7 16 11"/></svg>Pin</button>
-        <button><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4"/><path d="M6 8v12h12V8"/></svg>Archive</button>
-        <button class="delete"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>Delete</button>
-      </div>
-    </div>
+</div>
 
-  </div>
+<div>
+<div class="account">
+<div class="avatar"></div>
+<div>
+<div>Pranab</div>
+<div class="plan">Free</div>
+</div>
+</div>
+<div class="planBtn">Upgrade</div>
+</div>
+</div>
 
-  <!-- ACCOUNT -->
-  <div>
-    <div class="divider"></div>
+<div class="main">
+<div class="topbar">StudyGenius AI</div>
 
-    <div class="account">
-      <div class="avatar"></div>
-      <div class="accInfo">
-        <div class="accName">Pranab</div>
-        <div class="plan">Free</div>
-      </div>
-    </div>
+<div class="chat" id="chat"></div>
 
-    <div class="planBtn">Upgrade Plan</div>
-  </div>
+<div class="inputBox">
+<input id="q" placeholder="Message...">
+<div class="actionBtn" onclick="sendMsg()">➤</div>
+</div>
+</div>
+
 </div>
 
 <script>
-function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("collapsed");}
+window.onload=()=>{
+setTimeout(()=>{
+document.getElementById("splash").style.display="none";
+document.getElementById("app").style.display="flex";
+},1200);
+};
+
+function toggleSidebar(){
+document.querySelector(".sidebar").classList.toggle("collapsed");
+}
 
 function toggleMenu3(e){
-  e.stopPropagation();
-  document.querySelectorAll(".menu3").forEach(m=>m.style.display="none");
-  let menu = e.target.parentElement.querySelector(".menu3");
-  menu.style.display="flex";
+e.stopPropagation();
+document.querySelectorAll(".menu3").forEach(m=>m.style.display="none");
+e.target.parentElement.querySelector(".menu3").style.display="flex";
 }
-document.addEventListener("click",()=>document.querySelectorAll(".menu3").forEach(m=>m.style.display="none"));
+document.addEventListener("click",()=>{
+document.querySelectorAll(".menu3").forEach(m=>m.style.display="none");
+});
+
+function sendMsg(){
+let q=document.getElementById("q");
+if(q.value){
+let chat=document.getElementById("chat");
+chat.innerHTML+=`<div class="message user">${q.value}</div>`;
+chat.innerHTML+=`<div class="message bot">Response...</div>`;
+q.value="";
+}
+}
 </script>
 
 </body>
