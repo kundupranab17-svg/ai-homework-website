@@ -7,30 +7,17 @@
 
 <style>
 body.dark{background:#181818;color:white;}
+body.light{background:#fff;color:#111;}
 body{margin:0;font-family:system-ui;display:flex;height:100vh;}
 
 /* SPLASH */
-#splash{
-position:fixed;width:100%;height:100%;
-background:#0f172a;display:flex;justify-content:center;align-items:center;
-z-index:9999;
-}
-#logoAnim{
-width:80px;height:80px;border-radius:50%;
-overflow:hidden;animation:zoomFade 1.5s ease forwards;
-}
+#splash{position:fixed;width:100%;height:100%;background:#0f172a;display:flex;justify-content:center;align-items:center;z-index:9999;}
+#logoAnim{width:80px;height:80px;border-radius:50%;overflow:hidden;animation:zoomFade 1.5s ease forwards;}
 #logoAnim img{width:100%;height:100%;object-fit:cover;}
-@keyframes zoomFade{
-0%{transform:scale(0.6);opacity:0;}
-100%{transform:scale(1);}
-}
+@keyframes zoomFade{0%{transform:scale(0.6);opacity:0;}100%{transform:scale(1);}}
 
 /* SIDEBAR */
-.sidebar{
-width:220px;background:#202123;padding:12px;
-display:flex;flex-direction:column;justify-content:space-between;
-transition:.3s;
-}
+.sidebar{width:220px;background:#202123;padding:12px;display:flex;flex-direction:column;justify-content:space-between;transition:0.3s;}
 .sidebar.collapsed{width:70px;}
 .sidebar.collapsed .btn span,
 .sidebar.collapsed .yourChats,
@@ -39,66 +26,85 @@ transition:.3s;
 .sidebar.collapsed .planBtn{display:none;}
 .sidebar.collapsed .btn{justify-content:center;}
 
-.logoRow{display:flex;justify-content:space-between;margin-bottom:10px;}
+.logoRow{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .logoWrap{width:28px;height:28px;border-radius:50%;overflow:hidden;}
-.logoWrap img{width:100%;}
-.toggleBtn{cursor:pointer;padding:6px;}
+.logoWrap img{width:100%;height:100%;object-fit:cover;}
+.toggleBtn{cursor:pointer;padding:6px;border-radius:6px;}
 .toggleBtn:hover{background:#2a2b32;}
 
-.btn{
-display:flex;align-items:center;gap:10px;
-padding:10px;border:none;border-radius:8px;
-margin:4px 0;background:transparent;color:inherit;cursor:pointer;
-}
+.btn{display:flex;align-items:center;gap:10px;padding:10px;border:none;border-radius:8px;margin:4px 0;background:transparent;color:inherit;cursor:pointer;}
 .btn:hover{background:#2a2b32;}
-.btn svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:2;}
 
-/* CHATS */
-.yourChats{font-size:14px;margin:10px 0;color:#aaa;}
-.chatItem{display:flex;justify-content:space-between;padding:8px;border-radius:6px;}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;}
+
+/* YOUR CHATS */
+.yourChats{font-size:14px;margin:10px 0 6px 6px;color:#9ca3af;font-weight:500;}
+.chatItem{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:6px;position:relative;font-size:13px;}
 .chatItem:hover{background:#2a2b32;}
-.left{display:flex;gap:6px;align-items:center;}
+.left{display:flex;align-items:center;gap:6px;}
 .dot{width:6px;height:6px;background:white;border-radius:50%;}
 
-/* MENU 3 */
+/* 3 DOT MENU */
 .menu3{
-position:absolute;right:-200px;width:200px;
-background:#2a2a2a;border-radius:10px;
-display:none;flex-direction:column;
+position:absolute;
+right:-200px;
+top:0;
+width:200px;
+background:#2a2a2a;
+border-radius:10px;
+padding:6px 0;
+display:none;
+flex-direction:column;
+z-index:1000;
 }
 .menu3 button{
-display:flex;gap:10px;align-items:center;
-background:none;border:none;color:white;
-padding:10px;font-size:13px;cursor:pointer;
+display:flex;
+align-items:center;
+gap:10px;
+background:none;
+border:none;
+color:white;
+padding:9px 14px;
+font-size:13px;
+cursor:pointer;
 }
 .menu3 button:hover{background:#3a3a3a;}
-.menu3 svg{width:16px;height:16px;stroke:currentColor;fill:none;}
-.menu3 hr{border:1px solid #444;}
+.menu3 hr{border:none;border-top:1px solid #444;margin:6px 0;}
+.menu3 svg{
+width:16px;
+height:16px;
+stroke:currentColor;
+fill:none;
+stroke-width:2;
+}
 
+/* DELETE RED */
 .delete{color:#ff3b3b;}
 .delete svg{stroke:#ff3b3b;}
 
 /* ACCOUNT */
-.account{display:flex;gap:10px;padding:8px;}
-.avatar{width:30px;height:30px;background:#444;border-radius:50%;}
+.divider{height:1px;background:#2f2f2f;margin:10px 0;}
+.account{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;}
+.account:hover{background:#2a2b32;}
+.avatar{width:32px;height:32px;border-radius:50%;background:#444;}
+.accInfo{display:flex;flex-direction:column;}
 .plan{font-size:11px;color:#aaa;}
-.planBtn{background:#2a2a2a;padding:8px;border-radius:20px;text-align:center;}
+.planBtn{margin-top:8px;padding:10px;text-align:center;border-radius:20px;background:#2a2a2a;font-size:13px;cursor:pointer;}
+.planBtn:hover{background:#3a3a3a;}
 
 /* MAIN */
 .main{flex:1;display:flex;flex-direction:column;}
-.topbar{height:50px;display:flex;justify-content:space-between;padding:0 15px;border-bottom:1px solid #444;}
-.chat{flex:1;padding:20px;}
-.message{margin:10px 0;padding:10px;border-radius:10px;}
-.user{background:#3b82f6;margin-left:auto;}
-.bot{background:#333;}
+.topbar{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-bottom:1px solid #444;}
+.chat{flex:1;padding:25px;overflow-y:auto;}
+.message{max-width:70%;padding:14px;margin:10px 0;border-radius:14px;}
+.user{margin-left:auto;background:linear-gradient(45deg,#3b82f6,#06b6d4);}
+.bot{background:#242424;}
 
 /* INPUT */
-.inputBox{
-display:flex;gap:10px;background:#2a2a2a;
-padding:10px;border-radius:20px;margin:10px;
-}
-input{flex:1;background:none;border:none;color:white;outline:none;}
-.actionBtn{background:#2f2f2f;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.inputBar{padding:14px;border-top:1px solid #333;}
+.inputBox{display:flex;align-items:center;gap:10px;max-width:800px;margin:auto;background:#2a2a2a;border-radius:18px;padding:12px 14px;}
+input{flex:1;background:none;border:none;color:inherit;outline:none;}
+.actionBtn{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#2f2f2f;}
 .sendActive{background:#10a37f;}
 </style>
 </head>
@@ -119,9 +125,10 @@ input{flex:1;background:none;border:none;color:white;outline:none;}
 <div class="toggleBtn" onclick="toggleSidebar()">☰</div>
 </div>
 
+<!-- MAIN -->
 <button class="btn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>New chat</span></button>
 
-<!-- 🔥 NEW ICON -->
+<!-- FIXED ICON -->
 <button class="btn">
 <svg viewBox="0 0 24 24">
 <path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>
@@ -132,40 +139,79 @@ input{flex:1;background:none;border:none;color:white;outline:none;}
 <div class="yourChats">Your Chats</div>
 
 <div class="chatItem">
-<div class="left"><div class="dot"></div><span>Example</span></div>
-<div onclick="toggleMenu3(event)">⋯</div>
+<div class="left">
+<div class="dot"></div>
+<span>Example Chat</span>
+</div>
+
+<div onclick="toggleMenu3(event)" style="cursor:pointer;">⋯</div>
 
 <div class="menu3">
-<button>Share</button>
-<button>Rename</button>
+<button>
+<svg viewBox="0 0 24 24"><path d="M4 12v-2a4 4 0 014-4h8"/></svg>
+Share
+</button>
+
+<button>
+<svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/></svg>
+Start group chat
+</button>
+
+<button>
+<svg viewBox="0 0 24 24"><path d="M4 20h4l10-10"/></svg>
+Rename
+</button>
+
 <hr>
-<button class="delete">Delete</button>
+
+<button>
+<svg viewBox="0 0 24 24"><path d="M12 17v-10"/></svg>
+Pin
+</button>
+
+<button>
+<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4"/></svg>
+Archive
+</button>
+
+<button class="delete">
+<svg viewBox="0 0 24 24"><path d="M5 6h14"/></svg>
+Delete
+</button>
 </div>
+
 </div>
 
 </div>
 
 <div>
+<div class="divider"></div>
+
 <div class="account">
 <div class="avatar"></div>
-<div>
+<div class="accInfo">
 <div>Pranab</div>
 <div class="plan">Free</div>
 </div>
 </div>
-<div class="planBtn">Upgrade</div>
+
+<div class="planBtn">Upgrade Plan</div>
 </div>
 </div>
 
 <div class="main">
+
 <div class="topbar">StudyGenius AI</div>
 
 <div class="chat" id="chat"></div>
 
+<div class="inputBar">
 <div class="inputBox">
 <input id="q" placeholder="Message...">
 <div class="actionBtn" onclick="sendMsg()">➤</div>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -187,6 +233,7 @@ e.stopPropagation();
 document.querySelectorAll(".menu3").forEach(m=>m.style.display="none");
 e.target.parentElement.querySelector(".menu3").style.display="flex";
 }
+
 document.addEventListener("click",()=>{
 document.querySelectorAll(".menu3").forEach(m=>m.style.display="none");
 });
