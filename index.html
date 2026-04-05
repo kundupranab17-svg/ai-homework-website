@@ -287,6 +287,14 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
         </svg>
         Archive
       </button>
+      <button>
+        <svg viewBox="0 0 24 24">
+          <circle cx="9" cy="7" r="4"/>
+          <circle cx="17" cy="17" r="3"/>
+          <path d="M13 10l2 2"/>
+        </svg>
+        Start Group Chat
+      </button>
       <hr>
       <button class="delete">
         <svg viewBox="0 0 24 24">
@@ -305,11 +313,12 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
 </div>
 
 <style>
+.topbar{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-bottom:1px solid #444;}
 .menu3{
   position:absolute;
   top:100%; /* button ke bilkul neeche */
   left:0;
-  width:200px;
+  width:220px;
   background:#2a2a2a;
   border-radius:10px;
   padding:6px 0;
@@ -333,6 +342,11 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
 .menu3 svg{width:16px;height:16px;stroke:white;fill:none;stroke-width:2;}
 .delete{color:#ff3b3b !important;}
 .delete svg{stroke:#ff3b3b !important;}
+@media(max-width:600px){
+  .topbar{padding:0 10px;}
+  .menu3{width:180px;}
+  .menu3 button{font-size:12px; padding:8px 12px;}
+}
 </style>
 
 <script>
@@ -343,6 +357,8 @@ function toggleMenu3(e){
   menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 document.addEventListener("click",()=>document.querySelectorAll(".menu3").forEach(m=>m.style.display="none"));
+
+function toggleTheme(){document.body.classList.toggle("dark");document.body.classList.toggle("light");}
 </script>
 <div class="chat" id="chat"></div>
 
