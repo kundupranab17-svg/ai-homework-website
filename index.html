@@ -245,12 +245,32 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
 
 <div class="topbar">
   <div style="font-weight:600; display:flex; align-items:center; gap:6px;">
-  StudyGenius AI
-  <svg width="16" height="16" viewBox="0 0 24 24">
-    <polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
-  <div class="icon" onclick="toggleTheme()">🌗</div>
+    StudyGenius AI
+    <svg width="16" height="16" viewBox="0 0 24 24">
+      <polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:10px;">
+    <!-- SHARE ICON + TEXT LIKE CHATGPT -->
+    <button class="btnTopbar" onclick="alert('Share clicked!')" style="display:flex; align-items:center; gap:4px; background:none; border:none; color:inherit; cursor:pointer; font-size:13px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="18" cy="5" r="3"></circle>
+        <circle cx="6" cy="12" r="3"></circle>
+        <circle cx="18" cy="19" r="3"></circle>
+        <line x1="8.7" y1="13.3" x2="15.3" y2="17.7"></line>
+        <line x1="15.3" y1="6.3" x2="8.7" y2="10.7"></line>
+      </svg>
+      <span>Share</span>
+    </button>
+
+    <!-- THEME TOGGLE BUTTON -->
+    <div class="icon" onclick="toggleTheme()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+      </svg>
+    </div>
+  </div>
 </div>
 
 <div class="chat" id="chat"></div>
