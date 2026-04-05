@@ -251,12 +251,9 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
   </div>
 
   <div style="display:flex; align-items:center; gap:10px;">
-    <!-- TOGGLE BUTTON tera original waala (🌗 theme toggle) -->
-    <div class="icon" onclick="toggleTheme()">🌗</div>
-
-    <!-- SHARE BUTTON (bilkul pehle jaise) -->
-    <button class="btnTopbar">
-      <svg width="16" height="16" viewBox="0 0 24 24">
+    <!-- SHARE BUTTON (toggle ke left) -->
+    <button class="btnTopbar" onclick="alert('Share clicked!')" style="display:flex; align-items:center; gap:4px; background:none; border:none; color:inherit; cursor:pointer; font-size:13px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="18" cy="5" r="3"></circle>
         <circle cx="6" cy="12" r="3"></circle>
         <circle cx="18" cy="19" r="3"></circle>
@@ -265,6 +262,9 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
       </svg>
       <span>Share</span>
     </button>
+
+    <!-- TOGGLE BUTTON (tera 🌗 waala) -->
+    <div class="icon" onclick="toggleTheme()">🌗</div>
   </div>
 </div>
 <div class="chat" id="chat"></div>
